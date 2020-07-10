@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>【K】FSM有限状态机 | MengZeATY</title>
+  <meta name="description" content="FSM有限状态机">
+<meta name="keywords" content="mengze,梦泽,FSM,有限状态机,电子,硬件,状态机,verilog,HDL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【K】FSM有限状态机">
+<meta property="og:url" content="https://mengze.top/[K]FSM有限状态机/index.html">
+<meta property="og:site_name" content="Meng Ze">
+<meta property="og:description" content="FSM有限状态机">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006I6aXRly1fnjocvwklfj30cn09jjs7.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006I6aXRly1fnjocwzm1ej30q30gf0to.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006I6aXRly1fnjocxx3p8j30q30gfjsa.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006I6aXRly1fnjocy8n54j30or0h30t6.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006I6aXRly1fnjocyshl6j30qb0g0taa.jpg">
+<meta property="og:image" content="http://wx2.sinaimg.cn/mw690/006I6aXRly1fnjoczal2pj30fi0brq2v.jpg">
+<meta property="og:updated_time" content="2020-07-10T14:52:07.648Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【K】FSM有限状态机">
+<meta name="twitter:description" content="FSM有限状态机">
+<meta name="twitter:image" content="http://wx3.sinaimg.cn/mw690/006I6aXRly1fnjocvwklfj30cn09jjs7.jpg">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://mengze.top/[K]FSM有限状态机/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Meng Ze" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/MZ_White.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://mengze.top">
+          <img class="img-circle img-rotate" src="/images/head.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">MengZeATY</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Dream Founder &amp; Creator</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Qingdao, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-emotion">
+          <a href="/心情随笔/">
+            
+            <i class="icon icon-jiaju"></i>
+            
+            <span class="menu-title">随笔</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/手记编程设计/">
+            
+            <i class="icon icon-time"></i>
+            
+            <span class="menu-title">手记</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="/pages/resume/resume.html">
+            
+            <i class="icon icon-starfish"></i>
+            
+            <span class="menu-title">简历</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-more"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/AaronTYin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/6148427895" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <b>网站正在全面改版中，最新动态请关注微博或BiliBili：MengZeATY，感谢大家的支持和等待，mengze.top即将开启新的征程，希望届时还能为大家带来更加完善的精彩。</b>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/">English</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后期设计/">后期设计</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说随笔/">小说随笔</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式/">嵌入式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/手记/">手记</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文学/">文学</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生物医学/">生物医学</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电子硬件/">电子硬件</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程/">编程</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自然科学/">自然科学</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/通信/">通信</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/English/" style="font-size: 13.57px;">English</a> <a href="/tags/前端/" style="font-size: 13.29px;">前端</a> <a href="/tags/后期设计/" style="font-size: 13px;">后期设计</a> <a href="/tags/小说随笔/" style="font-size: 13px;">小说随笔</a> <a href="/tags/嵌入式/" style="font-size: 13.14px;">嵌入式</a> <a href="/tags/手记/" style="font-size: 13.43px;">手记</a> <a href="/tags/文学/" style="font-size: 13.86px;">文学</a> <a href="/tags/生物医学/" style="font-size: 13px;">生物医学</a> <a href="/tags/电子硬件/" style="font-size: 14px;">电子硬件</a> <a href="/tags/编程/" style="font-size: 13.71px;">编程</a> <a href="/tags/自然科学/" style="font-size: 13px;">自然科学</a> <a href="/tags/通信/" style="font-size: 13px;">通信</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/">2026</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">49</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#有限状态机的概念"><span class="toc-number">1.</span> <span class="toc-text">有限状态机的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本术语概念"><span class="toc-number">2.</span> <span class="toc-text">基本术语概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态机的结构"><span class="toc-number">3.</span> <span class="toc-text">状态机的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态机的种类"><span class="toc-number">4.</span> <span class="toc-text">状态机的种类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态机的设计的一般步骤和风格"><span class="toc-number">5.</span> <span class="toc-text">状态机的设计的一般步骤和风格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态的编码"><span class="toc-number">6.</span> <span class="toc-text">状态的编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态机设计举例"><span class="toc-number">7.</span> <span class="toc-text">状态机设计举例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附-序列检测器"><span class="toc-number">8.</span> <span class="toc-text">附:序列检测器</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-[K]FSM有限状态机" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【K】FSM有限状态机
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/[K]FSM有限状态机/" class="article-date">
+	  <time datetime="2018-01-16T16:00:00.000Z" itemprop="datePublished">2018-01-17</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/电子硬件/">电子硬件</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/[K]FSM有限状态机/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.9k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <hr>
+<a id="more"></a>
+<h2 id="有限状态机的概念"><a href="#有限状态机的概念" class="headerlink" title="有限状态机的概念"></a>有限状态机的概念</h2><ol>
+<li>表示有限个状态以及在这些状态之间转移和动作等行为的数字模型(来自度娘百科)</li>
+<li><p>有限状态机FSM是一种常用的电路设计方法，可以把复杂的控制逻辑分解成有限个稳定状态，在每个状态上判断事件，变连续处理为离散数字处理，符合数字逻辑的工作特点。(来自老师)</p>
+</li>
+<li><p>举例:</p>
+<blockquote>
+<p>红绿灯: 红绿灯运作的原理相当简单，从一开始绿灯，经过一段时间后，将变为黄灯，再隔一会儿，就会变成红灯，如此不断反覆。<br><img src="http://wx3.sinaimg.cn/mw690/006I6aXRly1fnjocvwklfj30cn09jjs7.jpg" alt="fsm1"></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="基本术语概念"><a href="#基本术语概念" class="headerlink" title="基本术语概念"></a>基本术语概念</h2><blockquote>
+<ol>
+<li><p><strong>状态（State）</strong>指的是对象在其生命周期中的一种状况，处于某个特定状态中的对象必然会满足某些<em>条件</em> 、执行某些<em>动作</em>或者是等待某些<em>事件</em>。</p>
+</li>
+<li><p><strong>事件（Event）</strong>是指在时间和空间上占有一定位置，能影响有限机状态的那些事情。事件通常会引起状态的变迁，促使状态机从一种状态切换到另一种状态。</p>
+</li>
+<li><p><strong>转换（Transition）</strong>指的是两个状态之间的一种关系，表明对象将在第一个状态中执行一定的动作，并将在某个事件发生同时某个特定条件满足时进入第二个状态。</p>
+</li>
+<li><p><strong>动作（Action）</strong>指的是状态机中可以执行的那些原子操作，所谓原子操作指的是它们在运行的过程中不能被其他消息所中断，必须一直执行下去。</p>
+</li>
+<li><p>有限状态机是由寄存器组和组合逻辑构成的硬件时序电路；其状态（即由寄存器组的1和0的组合所构成的有限个状态）只能在同一时钟跳变沿的情况下才能从一个状态转向另一个状态；状态机可用于产生在时钟跳变沿时刻开关的复杂的控制逻辑，是数字逻辑的控制核心。</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="状态机的结构"><a href="#状态机的结构" class="headerlink" title="状态机的结构"></a>状态机的结构</h2><p>FSM在结构上主要包括三部分:</p>
+<ol>
+<li>State register (状态寄存器)：记忆状态机当前所处的状态，n个触发器可以记忆2n个状态</li>
+<li>Combination logic to generate next  state (产生下一个状态的组合逻辑)：根据输入信号和当前状态，决定下一个状态</li>
+<li>Output Logic (输出逻辑)：由当前状态和输出信号决定当前状态的输出。</li>
+</ol>
+<h2 id="状态机的种类"><a href="#状态机的种类" class="headerlink" title="状态机的种类"></a>状态机的种类</h2><p>按照输出逻辑可以将FSM分为:</p>
+<ol>
+<li><p>Mealy状态机<br>时序逻辑的输出不仅取决于当前状态，还取决于输入。</p>
+</li>
+<li><p>Moore状态机<br>时序逻辑的输出只取决于当前状态。</p>
+</li>
+</ol>
+<p><img src="http://wx3.sinaimg.cn/mw690/006I6aXRly1fnjocwzm1ej30q30gf0to.jpg" alt="fsm2"><br><img src="http://wx3.sinaimg.cn/mw690/006I6aXRly1fnjocxx3p8j30q30gfjsa.jpg" alt="fsm3"></p>
+<h2 id="状态机的设计的一般步骤和风格"><a href="#状态机的设计的一般步骤和风格" class="headerlink" title="状态机的设计的一般步骤和风格"></a>状态机的设计的一般步骤和风格</h2><p><strong>设计步骤</strong></p>
+<ol>
+<li>逻辑抽象，得出状态转换图</li>
+<li>状态化简</li>
+<li>状态编码</li>
+<li>用Verilog HDL来描述有限状态机，使用always块语句和case（if）等条件语句及赋值语句即可方便实现</li>
+</ol>
+<p><strong>设计风格</strong></p>
+<ol>
+<li>单always块<br>一段式将状态转移寄存、状态译码和输出放在一个always块中</li>
+<li>两always块<br>一个完成状态转移寄存、另一个完成状态译码和输出；</li>
+</ol>
+<h2 id="状态的编码"><a href="#状态的编码" class="headerlink" title="状态的编码"></a>状态的编码</h2><p><img src="http://wx3.sinaimg.cn/mw690/006I6aXRly1fnjocy8n54j30or0h30t6.jpg" alt="fsm4"></p>
+<p>Binary、gray-code编码使用最少的触发器，较多的组合逻辑资源，而one-hot编码反之。<br>另一方面，对于小型设计使用Binary、gray-code更有效，而大型状态机使用one-hot编码更高效。</p>
+<p>FPGA设计建议采用独热编码。</p>
+<h2 id="状态机设计举例"><a href="#状态机设计举例" class="headerlink" title="状态机设计举例"></a>状态机设计举例</h2><p><img src="http://wx3.sinaimg.cn/mw690/006I6aXRly1fnjocyshl6j30qb0g0taa.jpg" alt="fsm5"></p>
+<ol>
+<li><p>上面的状态转移图表示了一个四状态的有限状态机，它的同步时钟是Clock,输入信号是 A 和 Reset,输出信号是 K1 和 K2。<br>状态的转移只能在同步时钟（Clock）的上升沿时发生，往哪个状态的转移则取决于目前所在的状态和输入的信号（Reset 和 A）。</p>
+</li>
+<li><p>设计步骤：<br> 1) Define module name and I/O port;（定义模块名和输入输出端口）<br> 2) Define input, output variable or register;（定义输入、输出变量或寄存器）<br> 3) Define clock and reset Signal ;（定义时钟和复位信号）<br> 4) Define State variable and state register;（定义状态变量和状态寄存器）<br> 5) Use clock edge triggered always block to reprsent procedure of state transaction;（用时钟沿触发的always块表示状态转移过程）<br> 6) Assign Value to state register when reset signal is active;（在复位信号有效时给状态寄存器赋初始值）<br> 7) Description state transaction, if it meet conditions，state is change from one to another;（描述状态的转换过程：符合条件，从一个状态到另外一个状态，否则留在原状态）<br> 8) Verify crection of state transaction, it must be comprehensive;（验证状态转移的正确性，必须完整和全面）</p>
+</li>
+<li><p>代码示例</p>
+</li>
+</ol>
+<p>1) 一个always块风格<br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">module</span>  fsm (Clock, Reset, A,  K2, K1);</div><div class="line"><span class="keyword">input</span> Clock, Reset, A;    <span class="comment">//定义时钟、复位和输入信号</span></div><div class="line"><span class="keyword">output</span> K2, K1;        <span class="comment">//定义输出控制信号的端口</span></div><div class="line"><span class="keyword">reg</span> K2, K1;              <span class="comment">//定义输出控制信号的寄存器</span></div><div class="line"><span class="keyword">reg</span> [<span class="number">1</span>:<span class="number">0</span>] state ;       <span class="comment">//定义状态寄存器</span></div><div class="line"></div><div class="line"><span class="comment">////////////定义状态变量参数值</span></div><div class="line"><span class="keyword">parameter</span>   Idle  = <span class="number">2</span>’b00,  Start = <span class="number">2</span>’b01,  </div><div class="line">            Stop = <span class="number">2</span>’b10,   Clear = <span class="number">2</span>’b11;</div><div class="line"></div><div class="line"><span class="keyword">always</span> @(<span class="keyword">posedge</span> Clock)</div><div class="line">    <span class="keyword">if</span> (!Reset)</div><div class="line">      <span class="keyword">begin</span>    <span class="comment">//定义复位后的初始状态和输出值</span></div><div class="line">        state &lt;= Idle;  K2&lt;=<span class="number">0</span>; K1&lt;=<span class="number">0</span>; </div><div class="line">      <span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="keyword">else</span></div><div class="line">  <span class="keyword">case</span> (state)</div><div class="line">    Idle:  <span class="keyword">begin</span> </div><div class="line">            <span class="keyword">if</span> (A)  <span class="keyword">begin</span> </div><div class="line">                        state &lt;= Start;</div><div class="line">                            K1&lt;=<span class="number">0</span>;</div><div class="line">                    <span class="keyword">end</span></div><div class="line">              <span class="keyword">else</span>       state &lt;= Idle;</div><div class="line">           <span class="keyword">end</span></div><div class="line">    Start: <span class="keyword">begin</span> </div><div class="line">             <span class="keyword">if</span> (!A)   state &lt;= Stop;</div><div class="line">                 <span class="keyword">else</span>    state &lt;= Start;</div><div class="line">             <span class="keyword">end</span></div><div class="line">    Stop:  <span class="keyword">begin</span>   <span class="comment">//符合条件进入新状态，否则留在原状态</span></div><div class="line">              <span class="keyword">if</span> (A)  <span class="keyword">begin</span>  </div><div class="line">                      state &lt;= Clear;</div><div class="line">                          K2&lt;= <span class="number">1</span>; <span class="keyword">end</span></div><div class="line">           <span class="keyword">else</span>   state &lt;= Stop;</div><div class="line">             <span class="keyword">end</span></div><div class="line">    Clear: <span class="keyword">begin</span> </div><div class="line">            <span class="keyword">if</span> (!A)  <span class="keyword">begin</span>  </div><div class="line">                        state &lt;= Idle;</div><div class="line">                            K2&lt;=<span class="number">0</span>;  K1&lt;=<span class="number">1</span>; <span class="keyword">end</span></div><div class="line">           <span class="keyword">else</span>   state &lt;= Clear;</div><div class="line">          <span class="keyword">end</span></div><div class="line">   <span class="keyword">endcase</span></div><div class="line"><span class="keyword">endmodule</span> </div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">用独热码表示状态</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">parameter   Idle     =  4’b1000,  </span></div><div class="line"><span class="comment">            Start    =  4’b0100,  </span></div><div class="line"><span class="comment">            Stop     =  4’b0010, </span></div><div class="line"><span class="comment">            Clear    =  4’b0001;</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure></p>
+<p>2) 两个always块风格<br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">module</span>  fsm (Clock, Reset, A,  K2, K1);</div><div class="line"><span class="keyword">input</span> Clock, Reset, A;</div><div class="line"><span class="keyword">output</span> K2, K1;</div><div class="line"><span class="keyword">reg</span> K2, K1;</div><div class="line"><span class="keyword">reg</span> [<span class="number">1</span>:<span class="number">0</span>] state, nextstate ;</div><div class="line"> </div><div class="line"><span class="keyword">parameter</span>   </div><div class="line">Idle     =  <span class="number">2'b00</span>,  </div><div class="line">Start    =  <span class="number">2'b01</span>,  </div><div class="line">Stop     =  <span class="number">2'b10</span>, </div><div class="line">Clear    =  <span class="number">2'b11</span>;</div><div class="line"></div><div class="line"><span class="comment">//----每一个时钟沿产生一次可能的状态变化---- </span></div><div class="line"><span class="keyword">always</span> @(<span class="keyword">posedge</span> Clock)</div><div class="line">  <span class="keyword">begin</span></div><div class="line">     <span class="keyword">if</span> (!Reset)</div><div class="line">            state &lt;= Idle; </div><div class="line">    <span class="keyword">else</span></div><div class="line">            state &lt;= nextstate; </div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="comment">//-------------------------------------------</span></div><div class="line"></div><div class="line"><span class="comment">//---- 产生下一状态的组合逻辑 ------     </span></div><div class="line"><span class="keyword">always</span> @(state <span class="keyword">or</span> A)</div><div class="line">     <span class="keyword">case</span> (state)</div><div class="line">        Idle:  <span class="keyword">if</span> (A)    </div><div class="line">                 nextstate = Start;      </div><div class="line">               <span class="keyword">else</span>  nextstate = Idle;</div><div class="line">       Start:  <span class="keyword">if</span> (!A)  nextstate = Stop;</div><div class="line">               <span class="keyword">else</span>   nextstate = Start;</div><div class="line">       Stop:  <span class="keyword">if</span> (A)  nextstate = Clear;</div><div class="line">              <span class="keyword">else</span>  nextstate = Stop;</div><div class="line">       Clear:  <span class="keyword">if</span> (!A)   nextstate = Idle;</div><div class="line">               <span class="keyword">else</span>   nextstate = Clear;</div><div class="line">      <span class="keyword">default</span>:  nextstate = <span class="number">2'bxx</span>;</div><div class="line">  <span class="keyword">endcase</span></div><div class="line"></div><div class="line"><span class="comment">//---- 产生输出K1的组合逻辑 --------------</span></div><div class="line"><span class="keyword">always</span> @(state <span class="keyword">or</span> Reset <span class="keyword">or</span> A) </div><div class="line">  <span class="keyword">if</span> (!Reset) K1=<span class="number">0</span>;</div><div class="line">    <span class="keyword">else</span></div><div class="line">       <span class="keyword">if</span> (state == Clear &amp;&amp; !A)  <span class="comment">//从Clear转向 Idle</span></div><div class="line">          K1=<span class="number">1</span>;</div><div class="line">       <span class="keyword">else</span>   K1= <span class="number">0</span>;        </div><div class="line"><span class="comment">//--- 产生输出K2的组合逻辑 ---------------</span></div><div class="line"><span class="keyword">always</span> @(state <span class="keyword">or</span> Reset <span class="keyword">or</span> A ) </div><div class="line">   <span class="keyword">if</span> (!Reset) K2 = <span class="number">0</span>;</div><div class="line">   <span class="keyword">else</span></div><div class="line">      <span class="keyword">if</span> (state == Stop &amp;&amp; A)  <span class="comment">// 从Stop转向 Clear</span></div><div class="line">        K2 = <span class="number">1</span>;</div><div class="line">      <span class="keyword">else</span> K2 = <span class="number">0</span>;</div><div class="line"><span class="comment">//------------------------------------------</span></div><div class="line"><span class="keyword">endmodule</span></div></pre></td></tr></table></figure></p>
+<p>3) 测试<br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">`<span class="meta-keyword">timescale</span> 1ns/1ns</span></div><div class="line"><span class="keyword">module</span> t;</div><div class="line">   <span class="keyword">reg</span> a;</div><div class="line">   <span class="keyword">reg</span> clock,rst;</div><div class="line">   <span class="keyword">wire</span> k2,k1;</div><div class="line"><span class="keyword">initial</span>              <span class="comment">// initial常用于仿真时信号的给出。</span></div><div class="line">     <span class="keyword">begin</span> </div><div class="line">       a=<span class="number">0</span>;</div><div class="line">       rst = <span class="number">1</span>;       <span class="comment">//给复位信号变量赋初始值</span></div><div class="line">       clock = <span class="number">0</span>;      <span class="comment">//给时钟变量赋初始值</span></div><div class="line">       #<span class="number">22</span> rst = <span class="number">0</span>;    <span class="comment">//使复位信号有效</span></div><div class="line">       #<span class="number">133</span> rst = <span class="number">1</span>;   <span class="comment">//经过一个多周期后使复位信号无效</span></div><div class="line">     <span class="keyword">end</span></div><div class="line"> </div><div class="line"><span class="keyword">always</span> #<span class="number">50</span> clock = ~clock; <span class="comment">//产生周期性的时钟</span></div><div class="line"><span class="keyword">always</span> @ (<span class="keyword">posedge</span> clock)   <span class="comment">//在每次时钟正跳变沿时刻产生不同的a </span></div><div class="line">  <span class="keyword">begin</span>   </div><div class="line">    #<span class="number">30</span> a = &#123;<span class="built_in">$random</span>&#125;%<span class="number">2</span>;   <span class="comment">// 每次a是 0还是1是随机的。</span></div><div class="line">    <span class="variable">#(3*50+12)</span>;  <span class="comment">// a 的值维持一段时间</span></div><div class="line">  <span class="keyword">end</span></div><div class="line">  </div><div class="line"><span class="keyword">initial</span></div><div class="line">    <span class="keyword">begin</span>   #<span class="number">100000</span>   <span class="built_in">$stop</span>;  <span class="keyword">end</span>   </div><div class="line">            <span class="comment">//系统任务，暂停仿真以便观察仿真波形。</span></div><div class="line"> </div><div class="line"><span class="comment">//----------- 调用被测试a'c模块 ----------</span></div><div class="line"> fsm  m(<span class="variable">.Clock</span>(clock), <span class="variable">.Reset</span>(rst),<span class="variable">.A</span>(a),<span class="variable">.K2</span>(k2),<span class="variable">.K1</span>(k1));    </div><div class="line">    </div><div class="line"><span class="keyword">endmodule</span></div></pre></td></tr></table></figure></p>
+<ol>
+<li>仿真波形<br><img src="http://wx2.sinaimg.cn/mw690/006I6aXRly1fnjoczal2pj30fi0brq2v.jpg" alt="fsm6"></li>
+</ol>
+<h2 id="附-序列检测器"><a href="#附-序列检测器" class="headerlink" title="附:序列检测器"></a>附:序列检测器</h2><p><a href="https://www.cnblogs.com/SYoong/p/5953339.html" target="_blank" rel="external">序列检测器</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://mengze.top/[K]FSM有限状态机/" title="【K】FSM有限状态机" target="_blank" rel="external">https://mengze.top/[K]FSM有限状态机/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本站所有文章除特别声明外，均遵循 <u><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a></u> 及 <u><a href="https://mengze.top/MZ-ATY%E6%B3%9B%E5%86%85%E5%AE%B9%E8%81%94%E5%90%88%E5%A3%B0%E6%98%8E/" target="_blank" rel="external">MZ-ATY VCJS 1.0</a></u> 协议。转载请附上原文出处链接和本声明。
+    </li>
+  </ul>
+</blockquote>
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/[K]CMOS器件/" title="【K】CMOS器件"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/[O]Fir滤波器的Verilog设计/" title="【O】Fir滤波器的Verilog设计"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,qzone,wechat,douban,linkedin" data-mobile-sites="weibo,qq,qzone,wechat,douban,linkedin"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+    
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/AaronTYin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/6148427895" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+        
+        &copy; 2017-2020 MengZeATY
+        
+        <div class="publishby">
+            <p>Theme <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a> by <a href="https://github.com/cofess" target="_blank"> cofess </a><br>
+            Hosted by <a href="https://pages.coding.me" style="font-weight: bold" rel="external nofollow">Coding Pages</a></p>
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>
