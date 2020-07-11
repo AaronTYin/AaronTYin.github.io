@@ -5677,7 +5677,7 @@ pre code {
 }
 
 .footer {
-  padding: 20px;
+  padding-left: 18px;
   background-color: #fbfbfb;
 }
 
@@ -7809,7 +7809,7 @@ body.okayNav-loaded {
   .header {
     position: fixed;
     top: 0;
-    bottom: 0;
+    bottom: 100px;
     left: 0;
     z-index: 1000;
     display: block;
