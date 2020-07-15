@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="robots" content="all">
+<meta name="author" content="MengZe">
+<title>16进制颜色显示器</title>
+<style>
+.divClass{
+width:216px;
+height:160px;
+border:2px solid black;
+text-align:center;
+}
+.href{
+width:216px;
+text-align:center;
+}
+</style>
+<link rel="alternate" href="/atom.xml" title="Meng Ze" type="application/atom+xml">
+</head>
+
+
+
+<body>
+<div id = "divShow" class = "divClass"></div>
+<input type = "text" id = "colorInput" value = "#000000">
+<button onClick = "change()">Change</button>
+<div class = "href">
+<a href = "http://www.atool.org/colorpicker.php" target = "_blank">在线颜色选择器</a><br>
+<a href = "http://www.atool.org/" target = "_blank">ATOOL在线工具</a><br><br>
+<b><a href = "https://mengze.top">返回mengze.top</a></b>
+</div>
+
+
+<script type = "text/javascript">
+function change(){
+
+var divColor = document.getElementById("colorInput").value;
+var dDiv = document.getElementById("divShow");
+
+dDiv.style.background = divColor;
+//dDiv.innerHTML = divColor;
+}
+</script>
+
+
+</body>
+</html>
