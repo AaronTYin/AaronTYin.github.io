@@ -26,15 +26,15 @@
 <meta property="og:site_name" content="Meng Ze">
 <meta property="og:description" content="批量重命名后缀并避免重复">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006I6aXRly1fsk2hujp8xj30dx0d2q36.jpg">
-<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006I6aXRly1fsk2hv50lrj30c20bbdg0.jpg">
-<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006I6aXRly1fsk2hvj2ufj30h208maa9.jpg">
-<meta property="og:image" content="http://wx1.sinaimg.cn/mw690/006I6aXRly1fsk2l8jhdwj30b308v3yl.jpg">
-<meta property="og:updated_time" content="2020-07-15T14:29:25.876Z">
+<meta property="og:image" content="https://mengze.top/sourcefile/[K]批量重命名后缀并避免重复/ren1.png">
+<meta property="og:image" content="https://mengze.top/sourcefile/[K]批量重命名后缀并避免重复/ren2.png">
+<meta property="og:image" content="https://mengze.top/sourcefile/[K]批量重命名后缀并避免重复/ren3.png">
+<meta property="og:image" content="https://mengze.top/sourcefile/[K]批量重命名后缀并避免重复/ren4.png">
+<meta property="og:updated_time" content="2020-07-19T07:21:35.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【K】批量重命名后缀并避免重复">
 <meta name="twitter:description" content="批量重命名后缀并避免重复">
-<meta name="twitter:image" content="http://wx3.sinaimg.cn/mw690/006I6aXRly1fsk2hujp8xj30dx0d2q36.jpg">
+<meta name="twitter:image" content="https://mengze.top/sourcefile/[K]批量重命名后缀并避免重复/ren1.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://mengze.top/[K]批量重命名后缀并避免重复/index.html">
   
@@ -46,6 +46,8 @@
   <link rel="stylesheet" href="/css/style.css">
   
   
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
   
   
 </head>
@@ -301,7 +303,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/[K]批量重命名后缀并避免重复/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 350(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 348(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -313,16 +315,15 @@
       
         <hr>
 <a id="more"></a>
-<h2 id="1-简单批量重命名"><a href="#1-简单批量重命名" class="headerlink" title="1.简单批量重命名"></a>1.简单批量重命名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">选中要重命名的所有文件，右键重命名，输入命名后回车。</div></pre></td></tr></table></figure>
-<h2 id="2-批量为某种类型的文件替换后缀"><a href="#2-批量为某种类型的文件替换后缀" class="headerlink" title="2.批量为某种类型的文件替换后缀"></a>2.批量为某种类型的文件替换后缀</h2><p>　　如将所有txt文件替换为jpg：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ren *.txt *.jpg</div></pre></td></tr></table></figure></p>
+<h2 id="1-简单批量重命名"><a href="#1-简单批量重命名" class="headerlink" title="1.简单批量重命名"></a>1.简单批量重命名</h2><p>　　选中要重命名的所有文件，右键重命名，输入命名后回车。</p>
+<h2 id="2-批量为某种类型的文件替换后缀"><a href="#2-批量为某种类型的文件替换后缀" class="headerlink" title="2.批量为某种类型的文件替换后缀"></a>2.批量为某种类型的文件替换后缀</h2><p>　　如将所有txt文件替换为jpg：<code>ren *.txt *.jpg</code></p>
 <p>　　注：此方法适用于没有重复名字的文件。</p>
-<h2 id="3-替换后缀时出现重复文件的解决方法"><a href="#3-替换后缀时出现重复文件的解决方法" class="headerlink" title="3.替换后缀时出现重复文件的解决方法"></a>3.替换后缀时出现重复文件的解决方法</h2><p>　　情况如图：<br>　　<img src="http://wx3.sinaimg.cn/mw690/006I6aXRly1fsk2hujp8xj30dx0d2q36.jpg" alt="ren1"></p>
-<p>　　在当前目录打开cmd(shift+右键)或者在当前目录新建bat，输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dir/b&gt;allFileName.xls</div></pre></td></tr></table></figure></p>
-<p>　　此文件包含当前目录下所有文件名，用excel打开allFileName.xls，在新列建立递增数字作为新文件名(注意删去自己建的bat和xls文件两行)，并加上你想要的后缀，如图：<br>　　<img src="http://wx3.sinaimg.cn/mw690/006I6aXRly1fsk2hv50lrj30c20bbdg0.jpg" alt="ren2"></p>
-<p>　　在新列输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">=&quot;ren &quot;&amp;A1&amp;&quot; &quot;&amp;C1</div></pre></td></tr></table></figure></p>
-<p>　　其中A和C为旧文件名和新文件名的两列列标，应用函数后下托到全部，如图：<br>　　<img src="http://wx3.sinaimg.cn/mw690/006I6aXRly1fsk2hvj2ufj30h208maa9.jpg" alt="ren3"><br>　　将此列复制，在当前目录下新建bat并粘贴，保存后运行。</p>
-<p>　　注：若文件名中包含括号，应在文件名两端加上双引号，在excel中用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">=&quot;&quot;&quot;&quot;&amp;A1&amp;&quot;&quot;&quot;&quot;</div></pre></td></tr></table></figure></p>
-<p>　　如图：<br>　　<img src="http://wx1.sinaimg.cn/mw690/006I6aXRly1fsk2l8jhdwj30b308v3yl.jpg" alt="ren4"></p>
+<h2 id="3-替换后缀时出现重复文件的解决方法"><a href="#3-替换后缀时出现重复文件的解决方法" class="headerlink" title="3.替换后缀时出现重复文件的解决方法"></a>3.替换后缀时出现重复文件的解决方法</h2><p>　　情况如图：<br>　　<img src="/sourcefile/[K]批量重命名后缀并避免重复/ren1.png" alt="ren1"></p>
+<p>　　在当前目录打开cmd(shift+右键)或者在当前目录新建bat，输入<code>dir/b&gt;allFileName.xls</code></p>
+<p>　　此文件包含当前目录下所有文件名，用excel打开allFileName.xls，在新列建立递增数字作为新文件名(注意删去自己建的bat和xls文件两行)，并加上你想要的后缀，如图：<br>　　<img src="/sourcefile/[K]批量重命名后缀并避免重复/ren2.png" alt="ren2"></p>
+<p>　　在新列输入<code>=&quot;ren &quot;&amp;A1&amp;&quot; &quot;&amp;C1</code></p>
+<p>　　其中A和C为旧文件名和新文件名的两列列标，应用函数后下托到全部，如图：<br>　　<img src="/sourcefile/[K]批量重命名后缀并避免重复/ren3.png" alt="ren3"><br>　　将此列复制，在当前目录下新建bat并粘贴，保存后运行。</p>
+<p>　　注：若文件名中包含括号，应在文件名两端加上双引号，在excel中用<code>=&quot;&quot;&quot;&quot;&amp;A1&amp;&quot;&quot;&quot;&quot;</code><br>　　如图：<br>　　<img src="/sourcefile/[K]批量重命名后缀并避免重复/ren4.png" alt="ren4"></p>
 <p>　　之后把A列替换为C列即可，然后执行上述步骤。</p>
 <h2 id="4-补充：bat新建方法"><a href="#4-补充：bat新建方法" class="headerlink" title="4.补充：bat新建方法"></a>4.补充：bat新建方法</h2><p>　　新建文本文档，重命名为a.bat，回车后右键编辑，保存后就可以双击使用了。</p>
 
@@ -504,6 +505,35 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
 
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
 
 
 

@@ -18,11 +18,13 @@
   
   
   <title>【K】FPGA基本概念 | MengZeATY</title>
-  <meta name="keywords" content="mengze,梦泽,FPGA,电子,硬件,verilog">
+  <meta name="description" content="FPGA基本概念">
+<meta name="keywords" content="mengze,梦泽,FPGA,电子,硬件,verilog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【K】FPGA基本概念">
 <meta property="og:url" content="https://mengze.top/[K]FPGA基础/index.html">
 <meta property="og:site_name" content="Meng Ze">
+<meta property="og:description" content="FPGA基本概念">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wx3.sinaimg.cn/large/006I6aXRly1fsqws30v3fj30kt0dbtb8.jpg">
 <meta property="og:image" content="http://wx2.sinaimg.cn/large/006I6aXRly1fsqws5iypvj30hq02xt8o.jpg">
@@ -38,9 +40,10 @@
 <meta property="og:image" content="http://wx3.sinaimg.cn/large/006I6aXRly1fsqws99uj5j30o00eq750.jpg">
 <meta property="og:image" content="http://wx3.sinaimg.cn/large/006I6aXRly1fsqws9sg9yj30lh0dz745.jpg">
 <meta property="og:image" content="http://wx2.sinaimg.cn/large/006I6aXRly1fsqwsbxy2nj30mv0ixq4s.jpg">
-<meta property="og:updated_time" content="2020-07-15T14:32:41.216Z">
+<meta property="og:updated_time" content="2020-07-19T14:55:53.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【K】FPGA基本概念">
+<meta name="twitter:description" content="FPGA基本概念">
 <meta name="twitter:image" content="http://wx3.sinaimg.cn/large/006I6aXRly1fsqws30v3fj30kt0dbtb8.jpg">
   <!-- Canonical links -->
   <link rel="canonical" href="https://mengze.top/[K]FPGA基础/index.html">
@@ -53,6 +56,8 @@
   <link rel="stylesheet" href="/css/style.css">
   
   
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
   
   
 </head>
@@ -521,6 +526,35 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
 
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
 
 
 

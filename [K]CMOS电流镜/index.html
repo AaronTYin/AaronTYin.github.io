@@ -46,7 +46,7 @@
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw690/006I6aXRgy1fnqk7biv2uj30mt0gdwgr.jpg">
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006I6aXRgy1fnqk7dveanj30qr0k3why.jpg">
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw690/006I6aXRgy1fnqk7eywq7j30qr0kvq6x.jpg">
-<meta property="og:updated_time" content="2020-07-15T14:33:11.493Z">
+<meta property="og:updated_time" content="2020-07-19T14:56:05.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【K】CMOS电流镜">
 <meta name="twitter:description" content="CMOS电流镜">
@@ -62,6 +62,8 @@
   <link rel="stylesheet" href="/css/style.css">
   
   
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
   
   
 </head>
@@ -529,6 +531,35 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
 
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
 
 
 

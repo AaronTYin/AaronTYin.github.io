@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="Meng Ze">
 <meta property="og:description" content="Windows CMD命令大全">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-07-15T14:31:32.953Z">
+<meta property="og:updated_time" content="2020-07-19T15:03:17.590Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【K】WindowsCMD命令大全">
 <meta name="twitter:description" content="Windows CMD命令大全">
@@ -41,6 +41,8 @@
   <link rel="stylesheet" href="/css/style.css">
   
   
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
   
   
 </head>
@@ -309,11 +311,11 @@
         <hr>
 <a id="more"></a>
 <blockquote>
-<p>　　本文摘录自 <a href="https://www.cnblogs.com/accumulater/p/7110811.html" target="_blank" rel="external">书写者–博客园</a>,若侵删。</p>
+<p>本文摘录自 <a href="https://www.cnblogs.com/accumulater/p/7110811.html" target="_blank" rel="external">书写者–博客园</a>,若侵删。</p>
 </blockquote>
 <p>　　虽然随着计算机产业的发展，Windows操作系统的应用越来越广泛，DOS面临着被淘汰的命运，但是因为它运行安全、稳定，有的用户还在使用，所以一般Windows的各种版本都与其兼容，用户可以在Windows 系统下运行DOS，中文版Windows XP中的命令提示符进一步提高了与DOS 下操作命令的兼容性，用户可以在命令提示符直接输入中文调用文件。</p>
 <p>　　在9x系统下输入command就可以打开命令行.而在NT系统上可以输入cmd来打开，在windows2003后被cmd替代，利用CMD命令查询系统的信息或者是判断网络的好坏。下图为CMD启动后的界面。</p>
-<h2 id="运行操作"><a href="#运行操作" class="headerlink" title="运行操作"></a><strong>运行操作</strong></h2><p>CMD命令：开始－&gt;运行－&gt;键入cmd或command(在命令行里可以看到系统版本、文件系统版本)</p>
+<h2 id="运行操作"><a href="#运行操作" class="headerlink" title="运行操作"></a><strong>运行操作</strong></h2><p>　　CMD命令：开始－&gt;运行－&gt;键入cmd或command(在命令行里可以看到系统版本、文件系统版本)</p>
 <h2 id="CMD命令锦集"><a href="#CMD命令锦集" class="headerlink" title="CMD命令锦集"></a><strong>CMD命令锦集</strong></h2><ol>
 <li>gpedit.msc—–组策略</li>
 <li>sndrec32——-录音机</li>
@@ -527,10 +529,7 @@
 <p>help [命令] 或 ？[命令] 查看命令说明<br>bye 或 quit 终止主机FTP进程,并退出FTP管理方式.<br>pwd 列出当前远端主机目录<br>put 或 send 本地文件名 [上传到主机上的文件名] 将本地一个文件传送至远端主机中<br>get 或 recv [远程主机文件名] [下载到本地后的文件名] 从远端主机中传送至本地主机中<br>mget [remote-files] 从远端主机接收一批文件至本地主机<br>mput local-files 将本地主机中一批文件传送至远端主机<br>dir 或 ls [remote-directory] [local-file] 列出当前远端主机目录中的文件.如果有本地文件,就将结果写至本地文件<br>ascii 设定以ASCII方式传送文件(缺省值)<br>bin 或 image 设定以二进制方式传送文件<br>bell 每完成一次文件传送,报警提示<br>cdup 返回上一级目录<br>close 中断与远程服务器的ftp会话(与open对应)<br>open host[port] 建立指定ftp服务器连接,可指定连接端口<br>delete 删除远端主机中的文件<br>mdelete [remote-files] 删除一批文件<br>mkdir directory-name 在远端主机中建立目录<br>rename [from] [to] 改变远端主机中的文件名<br>rmdir directory-name 删除远端主机中的目录<br>status 显示当前FTP的状态<br>system 显示远端主机系统类型<br>user user-name [password] [account] 重新以别的用户名登录远端主机<br>open host [port] 重新建立一个新的连接<br>prompt 交互提示模式<br>macdef 定义宏命令<br>lcd 改变当前本地主机的工作目录,如果缺省,就转到当前用户的HOME目录<br>chmod 改变远端主机的文件权限<br>case 当为ON时,用MGET命令拷贝的文件名到本地机器中,全部转换为小写字母<br>cd remote－dir 进入远程主机目录<br>cdup 进入远程主机目录的父目录<br>! 在本地机中执行交互shell，exit回到ftp环境,如!ls*.zip</p>
 <h2 id="FTP命令详解"><a href="#FTP命令详解" class="headerlink" title="FTP命令详解"></a><strong>FTP命令详解</strong></h2><p>　　FTP命令是Internet用户使用最频繁的命令之一，熟悉并灵活应用FTP的内部命令，可以大大方便使用者，并收到事半功倍之效。如果你想学习使用进行后台FTP下载，那么就必须学习FTP指令。</p>
 <p><strong>命令行格式</strong><br>ftp -v -d -i -n -g [主机名] ，其中<br>-v 显示远程服务器的所有响应信息<br>-n 限制ftp的自动登录，即不使用；.n etrc文件；<br>-d 使用调试方式；<br>-g 取消全局文件名。</p>
-<p><strong>FTP使用的内部命令(中括号表示可选项)</strong><br>1.![cmd[args]]：在本地机中执行交互shell，exit回到ftp环境，如：!ls*.zip<br>2.\$ macro-ame[args]： 执行宏定义macro-name。<br>3.account[password]： 提供登录远程系统成功后访问系统资源所需的补充口令。<br>4.append local-file[remote-file]：将本地文件追加到远程系统主机，若未指定远程系统文件名，则使用本地文件名。<br>5.ascii：使用ascii类型传输方式。<br>6.bell：每个命令执行完毕后计算机响铃一次。<br>7.bin：使用二进制文件传输方式。<br>8.bye：退出ftp会话过程。<br>9.case：在使用mget时，将远程主机文件名中的大写转为小写字母。</p>
-<ol>
-<li>cd remote-dir：进入远程主机目录。<br>11.cdup：进入远程主机目录的父目录。<br>12.chmod mode file-name：将远程主机文件file-name的存取方式设置为mode，如：chmod 777 a.out。<br>13.close：中断与远程服务器的ftp会话(与open对应)。<br>14 .cr：使用asscii方式传输文件时，将回车换行转换为回行。<br>15.delete remote-file：删除远程主机文件。<br>16.debug[debug-value]：设置调试方式， 显示发送至远程主机的每条命令，如：deb up 3，若设为0，表示取消debug。<br>17.dir[remote-dir][local-file]：显示远程主机目录，并将结果存入本地文件。<br>18.disconnection：同close。<br>19.form format：将文件传输方式设置为format，缺省为file方式。<br>20.get remote-file[local-file]： 将远程主机的文件remote-file传至本地硬盘的local-file。<br>21.glob：设置mdelete，mget，mput的文件名扩展，缺省时不扩展文件名，同命令行的-g参数。<br>22.hash：每传输1024字节，显示一个hash符号(#)。<br>23.help[cmd]：显示ftp内部命令cmd的帮助信息，如：help get。<br>24.idle[seconds]：将远程服务器的休眠计时器设为[seconds]秒。<br>25.image：设置二进制传输方式(同binary)。<br>26.lcd[dir]：将本地工作目录切换至dir。<br>27.ls[remote-dir][local-file]：显示远程目录remote-dir， 并存入本地文件local-file。<br>28.macdef macro-name：定义一个宏，遇到macdef下的空行时，宏定义结束。<br>29.mdelete[remote-file]：删除远程主机文件。<br>30.mdir remote-files local-file：与dir类似，但可指定多个远程文件，如 ：mdir <em>.o.</em>.zipoutfile 。<br>31.mget remote-files：传输多个远程文件。<br>32.mkdir dir-name：在远程主机中建一目录。<br>33.mls remote-file local-file：同nlist，但可指定多个文件名。<br>34.mode[modename]：将文件传输方式设置为modename， 缺省为stream方式。<br>35.modtime file-name：显示远程主机文件的最后修改时间。<br>36.mput local-file：将多个文件传输至远程主机。<br>37.newer file-name： 如果远程机中file-name的修改时间比本地硬盘同名文件的时间更近，则重传该文件。<br>38.nlist[remote-dir][local-file]：显示远程主机目录的文件清单，并存入本地硬盘的local-file。<br>39.nmap[inpattern outpattern]：设置文件名映射机制， 使得文件传输时，文件中的某些字符相互转换， 如：nmap $1.$2.$3[$1，$2].[$2，$3]，则传输文件a1.a2.a3时，文件名变为a1，a2。 该命令特别适用于远程主机为非UNIX机的情况。<br>40.ntrans[inchars[outchars]]：设置文件名字符的翻译机制，如ntrans1R，则文件名LLL将变为RRR。<br>41.open host[port]：建立指定ftp服务器连接，可指定连接端口。<br>42.passive：进入被动传输方式。<br>43.prompt：设置多个文件传输时的交互提示。<br>44.proxy ftp-cmd：在次要控制连接中，执行一条ftp命令， 该命令允许连接两个ftp服务器，以在两个服务器间传输文件。第一条ftp命令必须为open，以首先建立两个服务器间的连接。<br>45.put local-file[remote-file]：将本地文件local-file传送至远程主机。<br>46.pwd：显示远程主机的当前工作目录。<br>47.quit：同bye，退出ftp会话。<br>48.quote arg1，arg2…：将参数逐字发至远程ftp服务器，如：quote syst.<br>49.recv remote-file[local-file]：同get。<br>50.reget remote-file[local-file]：类似于get， 但若local-file存在，则从上次传输中断处续传。<br>51.rhelp[cmd-name]：请求获得远程主机的帮助。<br>52.rstatus[file-name]：若未指定文件名，则显示远程主机的状态， 否则显示文件状态。<br>53.rename[from][to]：更改远程主机文件名。<br>54.reset：清除回答队列。<br>55.restart marker：从指定的标志marker处，重新开始get或put，如：restart 130。<br>56.rmdir dir-name：删除远程主机目录。<br>57.runique：设置文件名只一性存储，若文件存在，则在原文件后加后缀.1， .2等。<br>58.send local-file[remote-file]：同put。<br>59.sendport：设置PORT命令的使用。<br>60.site arg1，arg2…：将参数作为SITE命令逐字发送至远程ftp主机。<br>61.size file-name：显示远程主机文件大小，如：site idle 7200。<br>62.status：显示当前ftp状态。<br>63.struct[struct-name]：将文件传输结构设置为struct-name， 缺省时使用stream结构。<br>64.sunique：将远程主机文件名存储设置为只一(与runique对应)。<br>65.system：显示远程主机的操作系统类型。<br>66.tenex：将文件传输类型设置为TENEX机的所需的类型。<br>67.tick：设置传输时的字节计数器。<br>68.trace：设置包跟踪。<br>69.type[type-name]：设置文件传输类型为type-name，缺省为ascii，如:type binary，设置二进制传输方式。<br>70.umask[newmask]：将远程服务器的缺省umask设置为newmask，如：umask 3<br>71.user user-name[password][account]：向远程主机表明自己的身份，需要口令时，必须输入口令，如：user anonymous my@email。<br>72.verbose：同命令行的-v参数，即设置详尽报告方式，ftp 服务器的所有响 应都将显示给用户，缺省为on.<br>73.?[cmd]：同help.</li>
-</ol>
+<p><strong>FTP使用的内部命令(中括号表示可选项)</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">1.![cmd[args]]：在本地机中执行交互shell，exit回到ftp环境，如：!ls*.zip</div><div class="line">2.$ macro-ame[args]： 执行宏定义macro-name。</div><div class="line">3.account[password]： 提供登录远程系统成功后访问系统资源所需的补充口令。</div><div class="line">4.append local-file[remote-file]：将本地文件追加到远程系统主机，若未指定远程系统文件名，则使用本地文件名。</div><div class="line">5.ascii：使用ascii类型传输方式。</div><div class="line">6.bell：每个命令执行完毕后计算机响铃一次。</div><div class="line">7.bin：使用二进制文件传输方式。</div><div class="line">8.bye：退出ftp会话过程。</div><div class="line">9.case：在使用mget时，将远程主机文件名中的大写转为小写字母。</div><div class="line">10.cd remote-dir：进入远程主机目录。</div><div class="line">11.cdup：进入远程主机目录的父目录。</div><div class="line">12.chmod mode file-name：将远程主机文件file-name的存取方式设置为mode，如：chmod 777 a.out。</div><div class="line">13.close：中断与远程服务器的ftp会话(与open对应)。</div><div class="line">14.cr：使用asscii方式传输文件时，将回车换行转换为回行。</div><div class="line">15.delete remote-file：删除远程主机文件。</div><div class="line">16.debug[debug-value]：设置调试方式， 显示发送至远程主机的每条命令，如：deb up 3，若设为0，表示取消debug。</div><div class="line">17.dir[remote-dir][local-file]：显示远程主机目录，并将结果存入本地文件。</div><div class="line">18.disconnection：同close。</div><div class="line">19.form format：将文件传输方式设置为format，缺省为file方式。</div><div class="line">20.get remote-file[local-file]： 将远程主机的文件remote-file传至本地硬盘的local-file。</div><div class="line">21.glob：设置mdelete，mget，mput的文件名扩展，缺省时不扩展文件名，同命令行的-g参数。</div><div class="line">22.hash：每传输1024字节，显示一个hash符号(#)。</div><div class="line">23.help[cmd]：显示ftp内部命令cmd的帮助信息，如：help get。</div><div class="line">24.idle[seconds]：将远程服务器的休眠计时器设为[seconds]秒。</div><div class="line">25.image：设置二进制传输方式(同binary)。</div><div class="line">26.lcd[dir]：将本地工作目录切换至dir。</div><div class="line">27.ls[remote-dir][local-file]：显示远程目录remote-dir， 并存入本地文件local-file。</div><div class="line">28.macdef macro-name：定义一个宏，遇到macdef下的空行时，宏定义结束。</div><div class="line">29.mdelete[remote-file]：删除远程主机文件。</div><div class="line">30.mdir remote-files local-file：与dir类似，但可指定多个远程文件，如 ：mdir *.o.*.zipoutfile 。</div><div class="line">31.mget remote-files：传输多个远程文件。</div><div class="line">32.mkdir dir-name：在远程主机中建一目录。</div><div class="line">33.mls remote-file local-file：同nlist，但可指定多个文件名。</div><div class="line">34.mode[modename]：将文件传输方式设置为modename， 缺省为stream方式。</div><div class="line">35.modtime file-name：显示远程主机文件的最后修改时间。</div><div class="line">36.mput local-file：将多个文件传输至远程主机。</div><div class="line">37.newer file-name： 如果远程机中file-name的修改时间比本地硬盘同名文件的时间更近，则重传该文件。</div><div class="line">38.nlist[remote-dir][local-file]：显示远程主机目录的文件清单，并存入本地硬盘的local-file。</div><div class="line">39.nmap[inpattern outpattern]：设置文件名映射机制， 使得文件传输时，文件中的某些字符相互转换， 如：nmap $1.$2.$3[$1，$2].[$2，$3]，则传输文件a1.a2.a3时，文件名变为a1，a2。 该命令特别适用于远程主机为非UNIX机的情况。</div><div class="line">40.ntrans[inchars[outchars]]：设置文件名字符的翻译机制，如ntrans1R，则文件名LLL将变为RRR。</div><div class="line">41.open host[port]：建立指定ftp服务器连接，可指定连接端口。</div><div class="line">42.passive：进入被动传输方式。</div><div class="line">43.prompt：设置多个文件传输时的交互提示。</div><div class="line">44.proxy ftp-cmd：在次要控制连接中，执行一条ftp命令， 该命令允许连接两个ftp服务器，以在两个服务器间传输文件。第一条ftp命令必须为open，以首先建立两个服务器间的连接。</div><div class="line">45.put local-file[remote-file]：将本地文件local-file传送至远程主机。</div><div class="line">46.pwd：显示远程主机的当前工作目录。</div><div class="line">47.quit：同bye，退出ftp会话。</div><div class="line">48.quote arg1，arg2...：将参数逐字发至远程ftp服务器，如：quote syst.</div><div class="line">49.recv remote-file[local-file]：同get。</div><div class="line">50.reget remote-file[local-file]：类似于get， 但若local-file存在，则从上次传输中断处续传。</div><div class="line">51.rhelp[cmd-name]：请求获得远程主机的帮助。</div><div class="line">52.rstatus[file-name]：若未指定文件名，则显示远程主机的状态， 否则显示文件状态。</div><div class="line">53.rename[from][to]：更改远程主机文件名。</div><div class="line">54.reset：清除回答队列。</div><div class="line">55.restart marker：从指定的标志marker处，重新开始get或put，如：restart 130。</div><div class="line">56.rmdir dir-name：删除远程主机目录。</div><div class="line">57.runique：设置文件名只一性存储，若文件存在，则在原文件后加后缀.1， .2等。</div><div class="line">58.send local-file[remote-file]：同put。</div><div class="line">59.sendport：设置PORT命令的使用。</div><div class="line">60.site arg1，arg2...：将参数作为SITE命令逐字发送至远程ftp主机。</div><div class="line">61.size file-name：显示远程主机文件大小，如：site idle 7200。</div><div class="line">62.status：显示当前ftp状态。</div><div class="line">63.struct[struct-name]：将文件传输结构设置为struct-name， 缺省时使用stream结构。</div><div class="line">64.sunique：将远程主机文件名存储设置为只一(与runique对应)。</div><div class="line">65.system：显示远程主机的操作系统类型。</div><div class="line">66.tenex：将文件传输类型设置为TENEX机的所需的类型。</div><div class="line">67.tick：设置传输时的字节计数器。</div><div class="line">68.trace：设置包跟踪。</div><div class="line">69.type[type-name]：设置文件传输类型为type-name，缺省为ascii，如:type binary，设置二进制传输方式。</div><div class="line">70.umask[newmask]：将远程服务器的缺省umask设置为newmask，如：umask 3</div><div class="line">71.user user-name[password][account]：向远程主机表明自己的身份，需要口令时，必须输入口令，如：user anonymous my@email。</div><div class="line">72.verbose：同命令行的-v参数，即设置详尽报告方式，ftp 服务器的所有响 应都将显示给用户，缺省为on.</div><div class="line">73.?[cmd]：同help.</div></pre></td></tr></table></figure></p>
 <h2 id="MYSQL-命令"><a href="#MYSQL-命令" class="headerlink" title="MYSQL 命令"></a><strong>MYSQL 命令</strong></h2><p>mysql -h主机地址 -u用户名 －p密码 连接MYSQL;如果刚安装好MYSQL，超级用户root是没有密码的。（例：mysql -h110.110.110.110 -Uroot -P123456  注:u与root可以不用加空格，其它也一样）</p>
 <p>exit 退出MYSQL</p>
 <p>mysqladmin -u用户名 -p旧密码 password 新密码 修改密码</p>
@@ -632,7 +631,7 @@
     
     
     <li class="next">
-      <a href="/[K]自闭症/" title="【K】关于自闭症"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/[K]自闭症/" title="【K】自闭症"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
@@ -770,6 +769,35 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
 
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
 
 
 

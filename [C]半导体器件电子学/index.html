@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw690/006I6aXRgy1fnh5bwxwafj32o03k07vj.jpg">
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006I6aXRgy1fnh5byj3i4j32o03k0tzo.jpg">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw690/006I6aXRgy1fnh5c0z725j32o03k07q5.jpg">
-<meta property="og:updated_time" content="2020-07-15T14:35:36.745Z">
+<meta property="og:updated_time" content="2020-07-19T14:56:50.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【C】半导体器件物理">
 <meta name="twitter:description" content="半导体器件物理">
@@ -45,6 +45,8 @@
   <link rel="stylesheet" href="/css/style.css">
   
   
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
   
   
 </head>
@@ -559,6 +561,35 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
 
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
 
 
 

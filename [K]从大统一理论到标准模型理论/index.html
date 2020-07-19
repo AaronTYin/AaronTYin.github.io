@@ -17,19 +17,19 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>【K】从标准模型理论到大统一理论 | MengZeATY</title>
-  <meta name="description" content="从标准模型理论到大统一理论">
+  <title>【K】从大统一理论到标准模型理论 | MengZeATY</title>
+  <meta name="description" content="从大统一理论到标准模型理论">
 <meta name="keywords" content="mengze,梦泽,天文学,标注模型,大统一,自然科学,理论">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【K】从标准模型理论到大统一理论">
+<meta property="og:title" content="【K】从大统一理论到标准模型理论">
 <meta property="og:url" content="https://mengze.top/[K]从大统一理论到标准模型理论/index.html">
 <meta property="og:site_name" content="Meng Ze">
-<meta property="og:description" content="从标准模型理论到大统一理论">
+<meta property="og:description" content="从大统一理论到标准模型理论">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-07-10T14:53:48.179Z">
+<meta property="og:updated_time" content="2020-07-19T14:54:35.707Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【K】从标准模型理论到大统一理论">
-<meta name="twitter:description" content="从标准模型理论到大统一理论">
+<meta name="twitter:title" content="【K】从大统一理论到标准模型理论">
+<meta name="twitter:description" content="从大统一理论到标准模型理论">
   <!-- Canonical links -->
   <link rel="canonical" href="https://mengze.top/[K]从大统一理论到标准模型理论/index.html">
   
@@ -41,6 +41,8 @@
   <link rel="stylesheet" href="/css/style.css">
   
   
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
   
   
 </head>
@@ -264,7 +266,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      【K】从标准模型理论到大统一理论
+      【K】从大统一理论到标准模型理论
     </h1>
   
 
@@ -309,7 +311,7 @@
         <hr>
 <a id="more"></a>
 <blockquote>
-<p>由《The Elegant Universe 》(优雅的宇宙)。<br>及中文版《宇宙的琴弦》</p>
+<p>参考自《The Elegant Universe 》(优雅的宇宙)及中文版《宇宙的琴弦》</p>
 </blockquote>
 <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>　　大统一理论（grand unified theories，GUTs），简称GUT，又称为万物之理。</p>
 <p>　　在爱因斯坦的鼎盛时代，自然界存在三种基本的力：引力，电力，磁力，而麦克斯韦在19世纪60年代中期建立了完整的电磁场理论，建立　<a href="https://baike.baidu.com/item/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E6%96%B9%E7%A8%8B%E7%BB%84/2717563" target="_blank" rel="external">麦克斯韦方程组</a>　从而完成了电力和磁力的统一。</p>
@@ -376,7 +378,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://mengze.top/[K]从大统一理论到标准模型理论/" title="【K】从标准模型理论到大统一理论" target="_blank" rel="external">https://mengze.top/[K]从大统一理论到标准模型理论/</a>
+      <a href="https://mengze.top/[K]从大统一理论到标准模型理论/" title="【K】从大统一理论到标准模型理论" target="_blank" rel="external">https://mengze.top/[K]从大统一理论到标准模型理论/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -403,7 +405,7 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/[K]自闭症/" title="【K】关于自闭症"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/[K]自闭症/" title="【K】自闭症"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
@@ -546,6 +548,35 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
 
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
 
 
 
