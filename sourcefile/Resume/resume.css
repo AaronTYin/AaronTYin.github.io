@@ -180,7 +180,7 @@ li.s10 {width: 7.714285714285714%;}
 ul#jobs,
 ul#schools, {margin: 0; list-style: none;}
 
-ul#jobs li,
+ul#jobs li {padding: 26px; margin: 0; clear: both; border:2px solid black; list-style:upper-roman;}
 ul#schools li,{margin: 0 0 20px 0; clear: both;}
 
 ul#jobs li .details,
