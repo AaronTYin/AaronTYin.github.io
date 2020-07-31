@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>【O】基于树莓派的智能避障小车设计 | MengZeATY</title>
+  <meta name="description" content="基于树莓派的智能避障小车设计">
+<meta name="keywords" content="mengze,梦泽,树莓派,智能,避障,小车,嵌入式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【O】基于树莓派的智能避障小车设计">
+<meta property="og:url" content="https://mengze.top/[O]基于树莓派的智能避障小车设计/index.html">
+<meta property="og:site_name" content="Meng Ze">
+<meta property="og:description" content="基于树莓派的智能避障小车设计">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-07-31T14:12:16.403Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【O】基于树莓派的智能避障小车设计">
+<meta name="twitter:description" content="基于树莓派的智能避障小车设计">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://mengze.top/[O]基于树莓派的智能避障小车设计/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Meng Ze" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/MZ_White.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://mengze.top">
+          <img class="img-circle img-rotate" src="/images/head.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">MengZeATY</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Dream Founder &amp; Creator</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Qingdao, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-emotion">
+          <a href="/[S]心情随笔/">
+            
+            <i class="icon icon-jiaju"></i>
+            
+            <span class="menu-title">随笔</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-essay">
+          <a href="/[S]手记编程设计/">
+            
+            <i class="icon icon-time"></i>
+            
+            <span class="menu-title">手记</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tools">
+          <a href="/[O]小工具集/">
+            
+            <i class="icon icon-plus"></i>
+            
+            <span class="menu-title">工具</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="/sourcefile/Resume/resume.html">
+            
+            <i class="icon icon-starfish"></i>
+            
+            <span class="menu-title">简历</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-more"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/AaronTYin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/6148427895" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <b>　　网站全面改版进行中，自此所有内容的首发均放于本站，更新动态发布于微博-<a href="https://weibo.com/u/6148427895" target="_blank" style="color:darkorchid;">MengZeATY</a>，视频依托于BiliBili-<a href="https://space.bilibili.com/270805824/" target="_blank" style="color:darkorchid;">MengZeATY</a>，感谢大家的支持和等待，mengze.top即将开启新的征程，希望为大家带来更加完善的精彩。</b>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FPGA/">FPGA</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web开发/">Web开发</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书影感评/">书影感评</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图影设计/">图影设计</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基本学识/">基本学识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式/">嵌入式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生物医学/">生物医学</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/站内页面/">站内页面</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程算法/">编程算法</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自然科学/">自然科学</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语言积累/">语言积累</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔短文/">随笔短文</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/FPGA/" style="font-size: 13.38px;">FPGA</a> <a href="/tags/Web开发/" style="font-size: 13.38px;">Web开发</a> <a href="/tags/书影感评/" style="font-size: 13.38px;">书影感评</a> <a href="/tags/图影设计/" style="font-size: 14px;">图影设计</a> <a href="/tags/基本学识/" style="font-size: 13px;">基本学识</a> <a href="/tags/嵌入式/" style="font-size: 13.25px;">嵌入式</a> <a href="/tags/生物医学/" style="font-size: 13.13px;">生物医学</a> <a href="/tags/站内页面/" style="font-size: 13.63px;">站内页面</a> <a href="/tags/编程算法/" style="font-size: 13.88px;">编程算法</a> <a href="/tags/自然科学/" style="font-size: 13.75px;">自然科学</a> <a href="/tags/语言积累/" style="font-size: 13.5px;">语言积累</a> <a href="/tags/随笔短文/" style="font-size: 13.25px;">随笔短文</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/">2026</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">49</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#摘要"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-系统定义"><span class="toc-number">2.</span> <span class="toc-text">1 系统定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-设计实现的功能"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 设计实现的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-可行性分析"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 可行性分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-需求分析"><span class="toc-number">2.3.</span> <span class="toc-text">1.3 需求分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-系统总体设计"><span class="toc-number">3.</span> <span class="toc-text">2 系统总体设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-总体设计方案的确定"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 总体设计方案的确定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-软硬件功能划分"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 软硬件功能划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-硬件体系架构设计"><span class="toc-number">3.3.</span> <span class="toc-text">2.3 硬件体系架构设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-软件体系架构设计"><span class="toc-number">3.4.</span> <span class="toc-text">2.4 软件体系架构设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-系统详细设计"><span class="toc-number">4.</span> <span class="toc-text">3 系统详细设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-硬件详细设计"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 硬件详细设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-软件详细设计"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 软件详细设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-功能测试"><span class="toc-number">5.</span> <span class="toc-text">4 功能测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">6.</span> <span class="toc-text">参考文献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拓展功能核心代码"><span class="toc-number">7.</span> <span class="toc-text">拓展功能核心代码</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-[O]基于树莓派的智能避障小车设计" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【O】基于树莓派的智能避障小车设计
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/[O]基于树莓派的智能避障小车设计/" class="article-date">
+	  <time datetime="2018-11-13T16:00:00.000Z" itemprop="datePublished">2018-11-14</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/嵌入式/">嵌入式</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/[O]基于树莓派的智能避障小车设计/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3.2k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 12(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <hr>
+<a id="more"></a>
+<p>　　<a href="https://github.com/AaronTYin/0-Embedded-PiCar" target="_blank" rel="external">Github：0-Embedded-PiCar</a></p>
+<blockquote>
+<p>课程设计时间  2018.10.29~2018.11.9<br>课程设计地点  D2-602<br>课程设计目的  熟悉嵌入式开发流程，掌握嵌入式开发设计方法，结合具体问题，培养嵌入式开发能力。</p>
+</blockquote>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>　　本作品是基于 Raspberry 系统设计的青科智能车，整车以 Raspberry 3B 为核心控制单元。车体运行通过红外模块和超声波避障模块检测识别赛道，利用 PWM 调制波控制调节四个驱动电机的转速，对模型车运动速度和运动方向控制，实现了智能车自主走迷宫的功能。 </p>
+<p>　　关键词：智能车控制；迷宫探索；自动检测；智能识别；</p>
+<h2 id="1-系统定义"><a href="#1-系统定义" class="headerlink" title="1 系统定义"></a>1 系统定义</h2><h3 id="1-1-设计实现的功能"><a href="#1-1-设计实现的功能" class="headerlink" title="1.1 设计实现的功能"></a>1.1 设计实现的功能</h3><p>　　采用C/C++或Python语言编程，实现小车在迷宫内自动直行、转弯、检测障碍的功能，通过红外传感器减少小车碰壁次数并以最短时间到达迷宫终点，并在基础功能的适当拓展实现用键盘控制小车运动的功能。</p>
+<h3 id="1-2-可行性分析"><a href="#1-2-可行性分析" class="headerlink" title="1.2 可行性分析"></a>1.2 可行性分析</h3><p>　　智能车是以汽车电子为背景，涵盖控制、模式识别、传感技术、电子、电气、计算机、机械等多学科的科技创意性设计，一般主要由路径识别、速度采集、角度控制及车速控制等模块组成。其设计与开发涉及控制、模式 识别、传感技术、汽车电子、电气、计算机、机械等多个学科，可以分为三大部分：传感器检测部分，执行部分，CPU。</p>
+<p>　　Raspberry 是一款基于 ARM 的微型电脑主板，以 SD/MicroSD 卡为内存硬盘，卡片主板周围有1/2/4个USB接口和一个10/100 以太网接 口（A 型没有网口），可连接键盘、鼠标和网线，整合在一张仅比信用卡稍大的主板上， 具备所有 PC 的基本功能[1]，只需接通屏幕和键盘，就完全能够作为一台 PC 使用。<br>　　基于此背景搭造了一台以树莓派为主控板，在上位机实现多种功能运算的智能遥控小车，通过以 Raspberry 板为服务器搭建内网连接，进行远程交互，实现远程操控[2]。之后，以该小车 的 pwm 驱动模块程序为基础，加入检测算法，实现小车自动避障的功能。</p>
+<p>　　青科智能小车超声波传感器和红外传感器可以实现避障功能，底部的光传感器可以实现循迹功能。</p>
+<h3 id="1-3-需求分析"><a href="#1-3-需求分析" class="headerlink" title="1.3 需求分析"></a>1.3 需求分析</h3><p>　　PC机一台、青科智能小车一部、2节5000mA大容量26650电池、板子搭建的迷宫一套。</p>
+<h2 id="2-系统总体设计"><a href="#2-系统总体设计" class="headerlink" title="2 系统总体设计"></a>2 系统总体设计</h2><h3 id="2-1-总体设计方案的确定"><a href="#2-1-总体设计方案的确定" class="headerlink" title="2.1 总体设计方案的确定"></a>2.1 总体设计方案的确定</h3><p>　　利用小车的超声波传感器进行大略转向判定，同时同红外线传感器进行方向矫正，以实现小车无碰撞走出迷宫。</p>
+<h3 id="2-2-软硬件功能划分"><a href="#2-2-软硬件功能划分" class="headerlink" title="2.2 软硬件功能划分"></a>2.2 软硬件功能划分</h3><p>　　硬件部分：树莓派的芯片是程序正常运行的核心，芯片的运算指令控制四个马达实现车轮的停转和速度以及运动的时间，前侧和两侧的超声波传感器能够对小车的位置进行实时测量，以确定是否有障碍物并及时调整路线实现自动避障，前端两个红外线传感器进行转向微调。另外，两节锂电池提供稳定持续的动力来源。</p>
+<p>　　软件部分：通过wifi，在电脑端对小车的树莓派进行代码编写、调试，观察小车返回的超声波传感器的测试距离。</p>
+<h3 id="2-3-硬件体系架构设计"><a href="#2-3-硬件体系架构设计" class="headerlink" title="2.3 硬件体系架构设计"></a>2.3 硬件体系架构设计</h3><p>　　青科智能小车主要由一块树莓派核心控制板、四个直流减速电机、两节锂电池、三个超声波传感器、两个不怕光红外传感器和两个底部的光传感器组成。</p>
+<p>　　超声波传感器和红外传感器可以实现避障功能，底部的光传感器可以实现循迹功能。</p>
+<h3 id="2-4-软件体系架构设计"><a href="#2-4-软件体系架构设计" class="headerlink" title="2.4 软件体系架构设计"></a>2.4 软件体系架构设计</h3><p>　　障碍物检测是智能小车导航研究中很重要的一个部分。在小车实际运行中，传感器相 当于小车的“眼睛”，必须得到障碍物及其距离的信息，才能相应的规划自动避障导航算 法。目前用于障碍物检测的传感器主要有超声波传感器、红外光电传感器和激光测距仪 等。</p>
+<p>　　激光测距一般通过量测激光在发射点和目标点之间的传输时间来计算得到距离，它的原理和结构相对简单，但价格高。</p>
+<p>　　超声波测距是通过测量超声波从发射到遇到障物反射到被接收这整个过程中的时间差来确定距离，超声波传感器使用比较方便且价格便宜， 具有信息处理简单，实时性强和价格低廉等特点，但实际使用中由于超声波发射束角过大，方向性差，只能得到障碍物简单的距离信息，无法得到障碍物的边界信息。</p>
+<p>　　而红外光电传感器具有探测视角小，方向性强等特点，但无法确定障碍物的距离信息。因此在本作品中，使用了超声波传感器和红外光电传感器，使用数据融合的方法得到障碍物方位及其距离信息[3]。此模块是为智能小车提供一种多用途的红外线+超声波探测系统的解决方案。使用红外线发射和接收管等分立元器件组成红外探头，与超声波模块一同进行迷宫探测，在小车探索的方式选择上，选择“贴墙”的行进方式。</p>
+<h2 id="3-系统详细设计"><a href="#3-系统详细设计" class="headerlink" title="3 系统详细设计"></a>3 系统详细设计</h2><h3 id="3-1-硬件详细设计"><a href="#3-1-硬件详细设计" class="headerlink" title="3.1 硬件详细设计"></a>3.1 硬件详细设计</h3><p><strong>核心控制板：</strong><br>　　青科智能车核心控制板采用树莓派三代 B 型主板，速度更快、性能更强大，是为学生计算机编程教育而设计，只有信用卡大小的卡片式电脑，其系统基于 Linux。</p>
+<p><strong>核心控制板参数配置：</strong><br> 1.2 GHz 四核 Broadcom BCM2837 64 位 ARMv8 处理器；<br> 板载BCM43143 WiFi；<br> 板载低功耗蓝牙 4.1 适配器(BLE)；<br> 1 GB RAM；<br> 4 个 USB 2 端口；<br> 微型SD 端口，用于存储操作系统及数据；<br> CSI摄像头端口用于连接树莓派摄像头。</p>
+<p><strong>电机：</strong><br> L298N 电机驱动芯片(可直接驱动智能车底盘四个电机并可提供PWM使能信号)；<br> 4 个 1:48 抗干扰直流减速电机（工作电压 3-6 V）。</p>
+<p><strong>电源：</strong><br> LM2596S 开关电源稳压电路(支持 6-12 V 宽电压输入，5 V输出)；<br> 1 个船型电源控制开关(可对整个系统起到很好的电源管理作用)；<br> 2 节 5000 mA 大容量 26650 电池，支持小车持续运转一个小时以上；<br> 带充电模块，可边充电边使用。</p>
+<p><strong>红外传感器：</strong><br> 抗干扰性能强，在室外阳光直射下也能正常工作，实现精确避障；<br> 探测距离为1-30 CM(探测距离的长短和供电电压、电流与周围环境有关）。</p>
+<p><strong>红外传感器调试方法:</strong><br>　　首先确定传感器正前方20cm 距离内不要有障碍物。<br>　　将502可调电阻逆时针调节到底，注意不能用力过度，否则可能会损坏可调电阻；<br>　　将103可调电阻逆时针慢慢调到底，然后顺时针慢慢旋转，检测这一圈之中是否存在一个临界点能使传感器 LED 信号灯变亮，信号灯亮后，将103可调电阻逆时针往回调1毫米即可，此时这里为模块探测的最远距离（如需距离变短，逆时针调节103电阻即可）；<br>　　如果上述操作没有点亮LED信号灯，那么将502电阻顺时针调节一毫米左右，再拧一圈103电阻器看看 led 亮了没有，如果没亮，再将502可调电阻顺时针调节1毫米左右，再拧一圈103电阻，如此反复，直到找到那个亮点；<br>　　将传感器对着被测物体（不能对黑色物体），物体和传感器之间的距离为你想要测的距离；实际检测距离根据自己所需探测距离调节为准。</p>
+<p><strong>超声波传感器：</strong><br> 电压：DC 5V；静态电流：小于 2 mA；<br> 感应角度：不大于15 度；探测距离：2 cm-450 cm；<br> 高精度：可达 0.3 cm。</p>
+<h3 id="3-2-软件详细设计"><a href="#3-2-软件详细设计" class="headerlink" title="3.2 软件详细设计"></a>3.2 软件详细设计</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;wiringPi.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;softPwm.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> HW_LEFT     11</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> HW_RIGHT    10</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> Trig        28</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> Echo        29</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> TrigL       24</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> EchoL       25</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> TrigR       21</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> EchoR       22</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> Turn        6</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> TurnLow     0.5</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> SP      500</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">float</span> <span class="title">disMeasure</span><span class="params">(<span class="keyword">double</span> Loca)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">timeval</span> <span class="title">tv1</span>;</span></div><div class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">timeval</span> <span class="title">tv2</span>;</span></div><div class="line">  <span class="keyword">long</span> start, stop;</div><div class="line">  <span class="keyword">float</span> dis;</div><div class="line"></div><div class="line">  digitalWrite(Loca, LOW);</div><div class="line">  delayMicroseconds(<span class="number">2</span>);</div><div class="line"></div><div class="line">  digitalWrite(Loca, HIGH);</div><div class="line">  delayMicroseconds(<span class="number">10</span>);   <span class="comment">//发出超声波脉冲</span></div><div class="line">  digitalWrite(Loca, LOW);</div><div class="line">  </div><div class="line">  <span class="keyword">while</span>(!(digitalRead(Loca+<span class="number">1</span>) == <span class="number">1</span>));</div><div class="line">  gettimeofday(&amp;tv1, <span class="literal">NULL</span>);  <span class="comment">//获取当前时间</span></div><div class="line"></div><div class="line">  <span class="keyword">while</span>(!(digitalRead(Loca+<span class="number">1</span>) == <span class="number">0</span>));</div><div class="line">  gettimeofday(&amp;tv2, <span class="literal">NULL</span>);  <span class="comment">//获取当前时间</span></div><div class="line"></div><div class="line">  start = tv1.tv_sec * <span class="number">1000000</span> + tv1.tv_usec;   <span class="comment">//微秒级的时间</span></div><div class="line">  stop  = tv2.tv_sec * <span class="number">1000000</span> + tv2.tv_usec;</div><div class="line"></div><div class="line">  dis = (<span class="keyword">float</span>)(stop - start) / <span class="number">1000000</span> * <span class="number">34000</span> / <span class="number">2</span>;  <span class="comment">//求出距离</span></div><div class="line"></div><div class="line">  <span class="keyword">return</span> dis;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">(<span class="keyword">int</span> time)</span>     <span class="comment">// 前进</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    softPwmWrite(<span class="number">1</span>,SP); <span class="comment">//左轮前进</span></div><div class="line">    softPwmWrite(<span class="number">4</span>,<span class="number">0</span>); </div><div class="line">    softPwmWrite(<span class="number">5</span>,SP); <span class="comment">//右轮前进</span></div><div class="line">    softPwmWrite(<span class="number">6</span>,<span class="number">0</span>);</div><div class="line">    delay(time * <span class="number">100</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">brake</span><span class="params">(<span class="keyword">int</span> time)</span>     <span class="comment">//刹车，停车</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    softPwmWrite(<span class="number">1</span>,<span class="number">0</span>); <span class="comment">//左轮stop</span></div><div class="line">    softPwmWrite(<span class="number">4</span>,<span class="number">0</span>); </div><div class="line">    softPwmWrite(<span class="number">5</span>,<span class="number">0</span>); <span class="comment">//右轮stop</span></div><div class="line">    softPwmWrite(<span class="number">6</span>,<span class="number">0</span>); </div><div class="line">    delay(time * <span class="number">20</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">left</span><span class="params">(<span class="keyword">int</span> time)</span>         <span class="comment">//左转(左轮不动，右轮前进)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    softPwmWrite(<span class="number">1</span>,<span class="number">0</span>); <span class="comment">//左轮stop</span></div><div class="line">    softPwmWrite(<span class="number">4</span>,SP); </div><div class="line">    softPwmWrite(<span class="number">5</span>,SP); <span class="comment">//右轮前进</span></div><div class="line">    softPwmWrite(<span class="number">6</span>,<span class="number">0</span>); </div><div class="line">    delay(time * <span class="number">100</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">right</span><span class="params">(<span class="keyword">int</span> time)</span>        <span class="comment">//右转(右轮不动，左轮前进)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    softPwmWrite(<span class="number">1</span>,SP); <span class="comment">//左轮前进</span></div><div class="line">    softPwmWrite(<span class="number">4</span>,<span class="number">0</span>); </div><div class="line">    softPwmWrite(<span class="number">5</span>,<span class="number">0</span>); <span class="comment">//右轮stop</span></div><div class="line">    softPwmWrite(<span class="number">6</span>,SP); </div><div class="line">    delay(time * <span class="number">100</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> SR;</div><div class="line">    <span class="keyword">int</span> SL;</div><div class="line">    <span class="keyword">float</span> disF,disL,disR;</div><div class="line">    <span class="comment">/*RPI*/</span></div><div class="line">    wiringPiSetup();</div><div class="line">    <span class="comment">/*WiringPi GPIO*/</span></div><div class="line">    pinMode (<span class="number">1</span>, OUTPUT);    <span class="comment">//IN1</span></div><div class="line">    pinMode (<span class="number">4</span>, OUTPUT);    <span class="comment">//IN2</span></div><div class="line">    pinMode (<span class="number">5</span>, OUTPUT);    <span class="comment">//IN3</span></div><div class="line">    pinMode (<span class="number">6</span>, OUTPUT);    <span class="comment">//IN4</span></div><div class="line">    pinMode(HW_LEFT, INPUT);</div><div class="line">    pinMode(HW_RIGHT, INPUT);</div><div class="line">    pinMode(Echo, INPUT);</div><div class="line">    pinMode(Trig, OUTPUT);</div><div class="line">    pinMode(EchoL, INPUT);</div><div class="line">    pinMode(TrigL, OUTPUT);</div><div class="line">    pinMode(EchoR, INPUT);</div><div class="line">    pinMode(TrigR, OUTPUT);</div><div class="line">    softPwmCreate(<span class="number">1</span>,<span class="number">1</span>,<span class="number">500</span>);</div><div class="line">    softPwmCreate(<span class="number">4</span>,<span class="number">1</span>,<span class="number">500</span>);</div><div class="line">    softPwmCreate(<span class="number">5</span>,<span class="number">1</span>,<span class="number">500</span>);</div><div class="line">    softPwmCreate(<span class="number">6</span>,<span class="number">1</span>,<span class="number">500</span>);</div><div class="line"></div><div class="line"><span class="keyword">while</span>(<span class="number">1</span>)</div><div class="line">  &#123;</div><div class="line">    <span class="comment">//有信号为LOW  没有信号为HIGH</span></div><div class="line">    SR = digitalRead(HW_RIGHT);</div><div class="line">    SL = digitalRead(HW_LEFT);</div><div class="line">    disF = disMeasure(Trig);</div><div class="line">    disL = disMeasure(TrigL);</div><div class="line">    disR = disMeasure(TrigR);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"distanceF = %0.2f cm\n"</span>,disF);<span class="comment">//输出当前超声波测得的距离</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"distanceL = %0.2f cm\n"</span>,disL);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"distanceR = %0.2f cm\n"</span>,disR);</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(disF&lt;<span class="number">30</span>&amp;&amp;disF&gt;<span class="number">0.3</span>)&#123;   <span class="comment">//测得前方障碍的距离小于30cm时做出如下响应</span></div><div class="line">    <span class="keyword">if</span>(disL&lt;=disR)&#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"TurnRight\n"</span>);</div><div class="line">        brake(<span class="number">1</span>);</div><div class="line">        right(Turn);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(disL&gt;disR)&#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"TurnLeft\n"</span>);</div><div class="line">        brake(<span class="number">1</span>);</div><div class="line">        left(Turn);</div><div class="line">    &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">    <span class="keyword">if</span>(SL == LOW)&#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"SL...\n"</span>);</div><div class="line">        brake(<span class="number">1</span>);</div><div class="line">        right(TurnLow);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(SR == LOW)&#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"SR...\n"</span>);</div><div class="line">        brake(<span class="number">1</span>);</div><div class="line">        left(TurnLow);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"RUN\n"</span>);</div><div class="line">            run(<span class="number">1</span>);  <span class="comment">//无障碍时前进</span></div><div class="line">    &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="4-功能测试"><a href="#4-功能测试" class="headerlink" title="4 功能测试"></a>4 功能测试</h2><p>　　青科智能小车采用树莓派核心板，安装了 Linux 系统，内置 GCC编译器及相关函数库，已经搭建了完整的开发环境。利用 PC 机，通过Wifi 登录智能车系统，操作步骤如下：<br>　　第一步：连接智能小车<br>　　搜索无线网络 QUST-ROBOT-xxx，输入密码： 12345678 进行连接。<br>　　第二步：登陆远程桌面<br>　　第三步：输入账号密码<br>　　第四步：打开终端<br>　　第五步：关闭自启动程序<br>　　自启动程序为了兼容VIPLE编程但是会影响python程序的正常运行，如果想使用 python 编程每次重新启动小车时都要关闭自启动程序。<br>　　<code>1.ps –aux|grep rpi</code><br>　　<code>2.寻找./rpi_robot 的 id 号</code><br>　　<code>3.sudo kill -9 id 号</code><br>　　第六步：在 Linux的终端内，使用程序编译指令<br>　　<code>$gcc bz.c -o bz -lwiringPi -lpthread</code><br>　　编译完成，可以利用下列命令执行程序<br>　　<code>$sudo ./bz</code></p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] CarrieAnnePhilbin. 零基础学 Raspberry Pi:图文版[M]. 人民邮电出版社, 2015.<br>[2] 门伯里, 豪斯张志博, 孙峻文. 树莓派学习指南 : 基于 Linux[M]. 人民邮电出版社, 2014.<br>[3] 王江伟, 刘青. 玩转树莓派 Raspberry Pi[M]. 北京航空航天大学出版社, 2013.</p>
+<h2 id="拓展功能核心代码"><a href="#拓展功能核心代码" class="headerlink" title="拓展功能核心代码"></a>拓展功能核心代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">char</span> <span class="title">getch</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">char</span> c;</div><div class="line">    system(<span class="string">"stty -echo"</span>);</div><div class="line">    system(<span class="string">"stty -icanon"</span>);</div><div class="line">    c=getchar();</div><div class="line">    system(<span class="string">"stty icanon"</span>);</div><div class="line">    system(<span class="string">"stty echo"</span>);</div><div class="line">    <span class="keyword">return</span> c;</div><div class="line">&#125;</div><div class="line"><span class="comment">//main函数内</span></div><div class="line"><span class="keyword">while</span>(<span class="number">1</span>)&#123;</div><div class="line">    key=getch();</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Key=%d\n"</span>,key);</div><div class="line">    <span class="keyword">if</span>(key==<span class="number">65</span>)</div><div class="line">         run();</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(key==<span class="number">66</span>)</div><div class="line">        back();</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(key==<span class="number">67</span>)</div><div class="line">        right();</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(key==<span class="number">68</span>)</div><div class="line">        left();</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(key==<span class="number">32</span>)</div><div class="line">        brake();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://mengze.top/[O]基于树莓派的智能避障小车设计/" title="【O】基于树莓派的智能避障小车设计" target="_blank" rel="external">https://mengze.top/[O]基于树莓派的智能避障小车设计/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本站所有文章除特别声明外，均遵循 <u><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a></u> 及 <u><a href="https://mengze.top/MZ-ATY_VCJS/" target="_blank" rel="external">MZ-ATY VCJS</a></u> 协议。转载请附上原文出处链接和本声明。
+    </li>
+  </ul>
+</blockquote>
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/[K]Premier快速入门/" title="【K】Premier快速入门"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/[O]加减交替定点原码除法器的FPGA实现/" title="【O】加减交替定点原码除法器的FPGA实现"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,qzone,wechat,douban,linkedin" data-mobile-sites="weibo,qq,qzone,wechat,douban,linkedin"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+    
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/AaronTYin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/6148427895" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+        
+        &copy; 2017-2020 <a href="https://mengze.top">MengZeATY</a>
+        
+        <div class="publishby">
+            <p>Theme <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a> by <a href="https://github.com/cofess" target="_blank"> cofess </a><br>
+            Hosted by <a href="https://pages.coding.me" style="font-weight: bold" rel="external nofollow">Coding Pages</a></p>
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>
